@@ -2,7 +2,7 @@
 
 gehomesdk decodes ERD 0x7003 (AC_TARGET_TEMPERATURE) with int(value, 16), i.e. big endian
 for any length, and writes it back as two big-endian bytes ("0042" = 66). The garage AC
-(MAC D828C95AB79F) has also reported the same setpoint as the two bytes "4200" since
+(MAC AABBCCDDEEFF) has also reported the same setpoint as the two bytes "4200" since
 2026-11-17T12:17:23Z, which the SDK reads as 16896 (= 66 * 256). The value flipped between
 66 and 16896 a dozen times since 2026-10-19, so the unit sends both forms; the 11-17
 event-loop patch (backlog 1957) did not touch this path, and upstream ha_gehome at

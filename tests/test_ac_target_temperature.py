@@ -1,6 +1,6 @@
 """AC target temperature read as 16896 instead of 66 (backlog 2001 part 3, 2026-11-18).
 
-The garage AC (MAC D828C95AB79F) reported ERD 0x7003 as the 2-byte payload "4200" from
+The garage AC (MAC AABBCCDDEEFF) reported ERD 0x7003 as the 2-byte payload "4200" from
 2026-11-17T12:17:23Z. gehomesdk decodes 0x7003 with int(value, 16) (big endian), so
 "4200" became 16896 (= 66 * 256) on both the diagnostic sensor and the climate's
 `temperature` attribute. Earlier reports of the same setpoint ("42" / "0042") decode to 66.
@@ -17,7 +17,7 @@ from custom_components.ge_home.entities.ac.target_temperature import (
 from custom_components.ge_home.entities.common.ge_climate import GeClimate
 from custom_components.ge_home.entities.common.options_converter import OptionsConverter
 
-MAC = "D828C95AB79F"
+MAC = "AABBCCDDEEFF"
 REAL_RAW_FROM_THE_CLOUD = "4200"  # '0x7003' in the 2026-11-18 07:24 allErd response for the garage AC
 
 
